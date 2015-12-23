@@ -1,0 +1,27 @@
+# SimpleBlindAuth 1.4.0 language file
+
+join:
+ message1: "This server requires account registration."
+ message2: "You must authenticate to play."
+ register: "Please register using: /register <password>"
+ login: "Please log in using: /login <password>"
+ popup: "YOU SHALL NOT PASS!"
+
+register:
+ usage: "/register <password>"
+ description: "Registers an account"
+ permission: "You do not have permission to use the register command!"
+ error:
+  password: "Your password is too short!"
+  registered: "This account is already registered."
+  general: "Error during authentication."
+
+login:
+ usage: "/login <password>"
+ description: "Logs into an account"
+ permission: "You do not have permission to use the login command!"
+ success: "You have been authenticated."
+ error:
+  password: "Incorrect password! You're soo bad at cracking passwords!"
+  registered: "This account is not yet registered."
+  block: "There you go, this account has now been blocked!"
