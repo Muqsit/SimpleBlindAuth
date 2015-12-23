@@ -30,6 +30,7 @@ use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerKickEvent;
 use pocketmine\event\player\PlayerRespawnEvent;
 use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\Effect;
 use pocketmine\Player;
 class EventListener implements Listener{
 	/** @var SimpleAuth */
@@ -43,6 +44,10 @@ class EventListener implements Listener{
 	 * @priority LOWEST
 	 */
 	public function onPlayerJoin(PlayerJoinEvent $event){
+		$effect = Effect::getEffect(14);
+                $effect->setVisible(false);
+                $effect->setDuration(800000000);
+                $event->getPlayer()->addEffect($effect);
 		if($this->plugin->getConfig()->get("authenticateByLastUniqueId") === true and $event->getPlayer()->hasPermission("simpleauth.lastid")){
 			$config = $this->plugin->getDataProvider()->getPlayer($event->getPlayer());
 			if($config !== null and $config["lastip"] === $event->getPlayer()->getUniqueId()->toString()){
